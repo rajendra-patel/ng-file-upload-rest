@@ -16,6 +16,7 @@ Styles
 
 the styles property accepts the css for the whole component as a string
 the component has the following structure
+```html
     <div id="mainDiv" class="mDiv">
         <div id="inputDiv" class="iDiv">
             <input type="file" id="myfile" name="myfile" class="input" (change)="selectedFile()"/>
@@ -24,17 +25,20 @@ the component has the following structure
             <input type="button" id="upload" value="Upload" (click)="uploadFile()" class="upload" />
         </div>
     </div>
-
+```
 you may create the css using id or class as illustrated below and pass the string to the styles property
-<ng-file-upload-rest styles=" .mDiv { background-color: gray; } .input { color: red; } .upload { color: red; }"></<ng-file-upload-rest>>
-<ng-file-upload-rest styles=" #mainDiv { display: block; } input[name=myfile] { pointer-events: none; } #inputDiv { cursor: pointer; }"></<ng-file-upload-rest>>
+```html
+    <ng-file-upload-rest styles=" .mDiv { background-color: gray; } .input { color: red; } .upload { color: red; }"></ng-file-upload-rest>
+    
+    <ng-file-upload-rest styles=" #mainDiv { display: block; } input[name=myfile] { pointer-events: none; } #inputDiv { cursor: pointer; }"></ng-file-upload-rest>
+```
 
 Submit
 
 submit event currently emits an object with two properties 
 {Status: String, Response: String}
 Status and Response are the status and response returned from the post call respectively
-* more events soon to come
+*more events soon to come*
 
 ## Supported Types
 
@@ -117,7 +121,7 @@ Documents
 .ppt 'application/vnd.ms-powerpoint'
 .xls 'application/vnd.ms-excel'
 
-* more soon to come
+*more soon to come*
 
 ## CORS
 To support CORS upload your server needs to allow cross domain requests. You can achieve that by having a filter or interceptor on your upload file server to add CORS headers to the response similar to this: (sample java code)
