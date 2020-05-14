@@ -44,81 +44,81 @@ Status and Response are the status and response returned from the post call resp
 
 Images
 
-.jpg 'image/jpeg'
-.jp2 'image/jp2'
-.jpx 'image/jpx'
-.jpm 'image/jpm'
-.mj2 'image/mj2'
-.png 'image/png'
-.gif 'image/gif'
-.webp 'image/webp'
-.ico 'image/x-icon'
-.bmp 'image/bmp'
-.tiff, .tif 'image/tiff'
-.xml, .svg 'image/svg'
-.jxr 'image/vnd.ms-photo'
+.jpg 'image/jpeg'  
+.jp2 'image/jp2'  
+.jpx 'image/jpx'  
+.jpm 'image/jpm'  
+.mj2 'image/mj2'  
+.png 'image/png'  
+.gif 'image/gif'  
+.webp 'image/webp'  
+.ico 'image/x-icon'  
+.bmp 'image/bmp'  
+.tiff, .tif 'image/tiff'  
+.xml, .svg 'image/svg'  
+.jxr 'image/vnd.ms-photo'  
 .bpg 'image/bpg'
 
 Audio
 
-.mp3 layer 1 'audio/mpeg'
-.mp3 layer 2 'audio/mpeg'
-.aac mpeg-4 'audio/aac'
-.aac mpeg-2 'audio/aac'
-.amr 'audio/amr'
-.wav 'audio/vnd-wave'
-.wma, .asf 'audio/x-ms-wma'
-.wv 'audio/wavpack'
-.mp3 'audio/mpeg'
-.mpc 'audio/x-musepack'
-.ac3 'audio/vnd.dolby.dd-raw'
-.mpc 'audio/x-musepack'
-.aif 'audio/aiff'
-.m4a 'audio/m4a'
-.mid 'audio/midi'
+.mp3 layer 1 'audio/mpeg'  
+.mp3 layer 2 'audio/mpeg'  
+.aac mpeg-4 'audio/aac'  
+.aac mpeg-2 'audio/aac'  
+.amr 'audio/amr'  
+.wav 'audio/vnd-wave'  
+.wma, .asf 'audio/x-ms-wma'  
+.wv 'audio/wavpack'  
+.mp3 'audio/mpeg'  
+.mpc 'audio/x-musepack'  
+.ac3 'audio/vnd.dolby.dd-raw'  
+.mpc 'audio/x-musepack'  
+.aif 'audio/aiff'  
+.m4a 'audio/m4a'  
+.mid 'audio/midi'  
 .flac 'audio/x-flac'
 
 Video
 
-.mpg ps, mpeg 'video/MP1S'
-.mpg m2b, vob, sub 'video/MP2P'
-.mpg 'video/mpeg'
-.mpg 'video/mpeg'
-.wmv 'video/x-ms-asf'
-.avi 'video/avi'
-.mov 'video/quicktime'
-.mov 'video/quicktime'
-.mov 'video/quicktime'
-.mov 'video/quicktime'
-.mov 'video/quicktime'
-.m4v flv, m4vh, m4vp 'video/mp4'
-.m4p 'video/mp4'
-.mp4 iso mpeg4 v1 'video/mp4'
-.m4v qt, mpeg4 v2 'video/mp4'
-.webm, mkv 'video/webm'
-.mkv, webm 'video/mkv'
+.mpg ps, mpeg 'video/MP1S'  
+.mpg m2b, vob, sub 'video/MP2P'  
+.mpg 'video/mpeg'  
+.mpg 'video/mpeg'  
+.wmv 'video/x-ms-asf'  
+.avi 'video/avi'  
+.mov 'video/quicktime'  
+.mov 'video/quicktime'  
+.mov 'video/quicktime'  
+.mov 'video/quicktime'  
+.mov 'video/quicktime'  
+.m4v flv, m4vh, m4vp 'video/mp4'  
+.m4p 'video/mp4'  
+.mp4 iso mpeg4 v1 'video/mp4'  
+.m4v qt, mpeg4 v2 'video/mp4'  
+.webm, mkv 'video/webm'  
+.mkv, webm 'video/mkv'  
 .flv 'video/x-flv'
 
 Archive
 
-.zip 'application/zip'
-.gz, .tgz 'application/gzip'
-.bz2 'application/x-bzip2'
-.lz 'application/x-lzip'
-.7z 'application/x-7z-compressed'
-.rar 'application/x-rar-compressed'
+.zip 'application/zip'  
+.gz, .tgz 'application/gzip'  
+.bz2 'application/x-bzip2'  
+.lz 'application/x-lzip'  
+.7z 'application/x-7z-compressed'  
+.rar 'application/x-rar-compressed'  
 .rar v5 'application/x-rar-compressed'
 
 Documents
 
-.rtf 'application/rtf'
-.pdf 'application/pdf'
-.docx 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-.pptx 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
-.xlsx 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-.xml 'application/xml'
-.doc 'application/msword'
-.ppt 'application/vnd.ms-powerpoint'
+.rtf 'application/rtf'  
+.pdf 'application/pdf'  
+.docx 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  
+.pptx 'application/vnd.openxmlformats-officedocument.presentationml.presentation'  
+.xlsx 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'  
+.xml 'application/xml'  
+.doc 'application/msword'  
+.ppt 'application/vnd.ms-powerpoint'  
 .xls 'application/vnd.ms-excel'
 
 *more soon to come*
@@ -126,8 +126,10 @@ Documents
 ## CORS
 To support CORS upload your server needs to allow cross domain requests. You can achieve that by having a filter or interceptor on your upload file server to add CORS headers to the response similar to this: (sample java code)
 
-httpResp.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS");
-httpResp.setHeader("Access-Control-Allow-Origin", "your.other.server.com");
-httpResp.setHeader("Access-Control-Allow-Headers", "Content-Type"));
+```java
+    httpResp.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS");  
+    httpResp.setHeader("Access-Control-Allow-Origin", "your.other.server.com");  
+    httpResp.setHeader("Access-Control-Allow-Headers", "Content-Type"));  
+```
 
 Alternatively you may add [Allow CORS: Access-Control-Allow-Origin](https://mybrowseraddon.com/access-control-allow-origin.html "Allow CORS: Access-Control-Allow-origin") extension to you browser
