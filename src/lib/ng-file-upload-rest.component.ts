@@ -1,33 +1,27 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, OnInit, Input, Output,EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'ng-file-upload-rest-NgFileUploadRest',
+  selector: 'ng-file-upload-rest',
   template: `
-    <div [style]="getDivCss()">
-        <div [style]="getInputCss()">
-            <input type="file" id="myfile" name="myfile" class="rm-input" (change)="selectedFile()"/>
+    <div id="mainDiv" class="mDiv">
+        <div id="inputDiv" class="iDiv">
+            <input type="file" id="myfile" name="myfile" class="input" (change)="selectedFile()"/>
         </div>
-        <div [style]="getUploadCss()">
-            <input type="button" id="upload" value="Upload" (click)="uploadFile()" class="rm-button" />
+        <div id="uploadDiv" class="uDiv">
+            <input type="button" id="upload" value="Upload" (click)="uploadFile()" class="upload" />
         </div>
     </div>
-  `,
-  styles: []
+  `
 })
 export class NgFileUploadRestComponent implements OnInit {
-  constructor(private doms : DomSanitizer) { }
-  @Input('cssForInput') inputCss;
-  @Input('cssForUpload') uploadCss;
-  @Input('cssForDiv') divCss;
+  constructor(private el: ElementRef) { }
   @Input('url') url;
-  @Output() onSubmit: EventEmitter<{Status: String, Response: String}> = new EventEmitter();
+  @Input() styles: string;
+  @Output() submit: EventEmitter<{Status: String, Response: String}> = new EventEmitter();
 
   
   ngOnInit() {
-    console.log(this.inputCss);
-    console.log(this.divCss);
-    
+    this.createStyle(this.styles);
   }
   
   selectedFile() {
@@ -490,7 +484,7 @@ export class NgFileUploadRestComponent implements OnInit {
     xmlHTTP.onreadystatechange = function() {
       if (xmlHTTP.readyState == XMLHttpRequest.DONE && xmlHTTP.status == 200) {
           let emittedObject = {Status: xmlHTTP.statusText, Response: xmlHTTP.responseText};
-          self.onSubmit.emit(emittedObject);
+          self.submit.emit(emittedObject);
       }
   }
     xmlHTTP.open("POST", this.url, true);
@@ -532,16 +526,9 @@ export class NgFileUploadRestComponent implements OnInit {
     uploadButton.disabled = false;
   }
 
-  getInputCss(){
-    return this.doms.bypassSecurityTrustStyle(this.inputCss);
+  createStyle(style: string): void {
+    const styleElement = document.createElement('style');
+    styleElement.appendChild(document.createTextNode(style));
+    this.el.nativeElement.appendChild(styleElement);
   }
-
-  getDivCss(){
-    return this.doms.bypassSecurityTrustStyle(this.divCss);
-  }
-
-  getUploadCss(){
-    return this.doms.bypassSecurityTrustStyle(this.uploadCss);
-  }
-
 }

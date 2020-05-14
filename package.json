@@ -1,6 +1,6 @@
 {
   "name": "ng-file-upload-rest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module that lets you upload files on an api after verifying its type",
   "author": {
     "name": "Rajendra Patel",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/rajendra-patel/ng-file-upload-rest.git"
   },
-  "keywords": ["upload file","angular"],
+  "keywords": ["upload file","angular", "upload rest"],
   "peerDependencies": {
     "@angular/common": "8.0.3",
     "@angular/core": "8.0.3"
