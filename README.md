@@ -6,16 +6,23 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 NPM: npm install ng-file-upload-rest
 
+
 ## Usage
+```html
+<ng-file-upload-rest></ng-file-upload-rest>
+```
 
-Url
+#### Url  
+
+The url property accepts the upload api url address as a string
+```html
 <ng-file-upload-rest url="http://localhost:8080/upload"></ng-file-upload-rest>
-the url property accepts the upload api url address as a string
+```
 
-Styles
+#### Styles
 
-the styles property accepts the css for the whole component as a string
-the component has the following structure
+The styles property accepts the css for the whole component as a string.  
+The component has the following structure
 ```html
     <div id="mainDiv" class="mDiv">
         <div id="inputDiv" class="iDiv">
@@ -26,23 +33,25 @@ the component has the following structure
         </div>
     </div>
 ```
-you may create the css using id or class as illustrated below and pass the string to the styles property
+You may create the css using id or class as illustrated below and pass the string to the styles property
 ```html
     <ng-file-upload-rest styles=" .mDiv { background-color: gray; } .input { color: red; } .upload { color: red; }"></ng-file-upload-rest>
     
     <ng-file-upload-rest styles=" #mainDiv { display: block; } input[name=myfile] { pointer-events: none; } #inputDiv { cursor: pointer; }"></ng-file-upload-rest>
 ```
 
-Submit
+#### Submit
 
-submit event currently emits an object with two properties 
-{Status: String, Response: String}
-Status and Response are the status and response returned from the post call respectively
-*more events soon to come*
+The submit event currently emits an object with two properties  
+{Status: String, Response: String}  
+
+Status and Response are the statusText and responseText returned from the xmlHTTP post call respectively  
+*more soon to come*
+
 
 ## Supported Types
 
-Images
+#### Images
 
 .jpg 'image/jpeg'  
 .jp2 'image/jp2'  
@@ -59,7 +68,7 @@ Images
 .jxr 'image/vnd.ms-photo'  
 .bpg 'image/bpg'
 
-Audio
+#### Audio
 
 .mp3 layer 1 'audio/mpeg'  
 .mp3 layer 2 'audio/mpeg'  
@@ -78,7 +87,7 @@ Audio
 .mid 'audio/midi'  
 .flac 'audio/x-flac'
 
-Video
+#### Video
 
 .mpg ps, mpeg 'video/MP1S'  
 .mpg m2b, vob, sub 'video/MP2P'  
@@ -99,7 +108,7 @@ Video
 .mkv, webm 'video/mkv'  
 .flv 'video/x-flv'
 
-Archive
+#### Archive
 
 .zip 'application/zip'  
 .gz, .tgz 'application/gzip'  
@@ -109,7 +118,7 @@ Archive
 .rar 'application/x-rar-compressed'  
 .rar v5 'application/x-rar-compressed'
 
-Documents
+#### Documents
 
 .rtf 'application/rtf'  
 .pdf 'application/pdf'  
@@ -119,11 +128,12 @@ Documents
 .xml 'application/xml'  
 .doc 'application/msword'  
 .ppt 'application/vnd.ms-powerpoint'  
-.xls 'application/vnd.ms-excel'
+.xls 'application/vnd.ms-excel'  
 
-*more soon to come*
+*more soon to come*  
 
-## CORS
+
+## CORS  
 To support CORS upload your server needs to allow cross domain requests. You can achieve that by having a filter or interceptor on your upload file server to add CORS headers to the response similar to this: (sample java code)
 
 ```java
